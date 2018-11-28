@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :followee_follows, foreign_key: :follower_id, class_name: "Follow"    
   # source: :followee matches with the belong_to :followee identification in the Follow model   
   has_many :followees, through: :followee_follows, source: :followee
-
+  has_many :spendings
+  has_many :objectives
 end

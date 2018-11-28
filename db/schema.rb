@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_194915) do
+ActiveRecord::Schema.define(version: 2018_11_28_202204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,17 @@ ActiveRecord::Schema.define(version: 2018_11_28_194915) do
     t.integer "follower_id"
   end
 
+  create_table "objectives", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.float "current_amount"
+    t.integer "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spendings", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "rent"
     t.integer "food"
     t.integer "utilities"
