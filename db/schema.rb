@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2018_11_28_202204) do
 
   create_table "spendings", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "rent"
-    t.integer "food"
-    t.integer "utilities"
-    t.integer "clothes"
-    t.integer "travel"
-    t.integer "other"
+    t.float "rent"
+    t.float "food"
+    t.float "utilities"
+    t.float "clothes"
+    t.float "travel"
+    t.float "other"
   end
 
   create_table "users", force: :cascade do |t|
