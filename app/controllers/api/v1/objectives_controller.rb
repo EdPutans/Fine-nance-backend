@@ -33,7 +33,7 @@ class Api::V1::ObjectivesController < ApplicationController
     private
 
     def objective_params
-        params.require(:objective).permit(:id, :user_id, :user, :rent, :food, :utilities, :clothes, :travel, :other)
+        params.require(:objective).permit(:id, :name, :current_amount, :total_amount, :user_id, :user)
     end
 
 
