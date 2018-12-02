@@ -16,11 +16,12 @@ class Api::V1::ObjectivesController < ApplicationController
     end
 
     def update
-        @objective = Objective.update(objective_params)
+        @objective = Objective.find_by(id: params[:id])
+        @objective.update(objective_params)
         if @objective
             render json: @objective
         else
-            render json: {error: "Unable to create this objective"}, status: 400
+            render json: {error: "Unable to update this objective"}, status: 400
         end
     end
 

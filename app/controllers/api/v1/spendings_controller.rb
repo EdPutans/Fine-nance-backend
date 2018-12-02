@@ -1,6 +1,6 @@
 class Api::V1::SpendingsController < ApplicationController
- 
-    
+
+
 
     def index
         @spendings = Spending.all
@@ -17,6 +17,16 @@ class Api::V1::SpendingsController < ApplicationController
         end
     end
 
+    def update
+        @spending = Spending.find_by(id: params[:id])
+        @spending.update(spending_params)
+        if @spending.save
+            render json: @spending
+        else
+            render json: {error: "Unable to update this Spending"}, status: 400
+        end
+    end
+
     def show
         @spending = Spending.find_by(id: params[:id])
         if @spending
@@ -26,7 +36,7 @@ class Api::V1::SpendingsController < ApplicationController
         end
     end
 
-  
+
     private
 
     def spending_params
