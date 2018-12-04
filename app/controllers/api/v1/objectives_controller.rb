@@ -1,6 +1,6 @@
 class Api::V1::ObjectivesController < ApplicationController
 
-   def index
+    def index
         @objective =Objective.all
         render json: @objective
     end

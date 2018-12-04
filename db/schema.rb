@@ -30,20 +30,16 @@ ActiveRecord::Schema.define(version: 2018_12_03_093936) do
     t.string "img_url"
   end
 
-  create_table "spendings", force: :cascade do |t|
-    t.integer "user_id"
-    t.float "rent"
-    t.float "food"
-    t.float "utilities"
-    t.float "clothes"
-    t.float "travel"
-    t.float "other"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password"
+    t.float "rent", default: 0.0
+    t.float "food", default: 0.0
+    t.float "travel", default: 0.0
+    t.float "other", default: 0.0
+    t.float "clothes", default: 0.0
+    t.float "utilities", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

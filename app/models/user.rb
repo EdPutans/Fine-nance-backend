@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :followees, through: :followee_follows, source: :followee
 
 
-  has_one :spending
+
   has_many :objectives
 end
