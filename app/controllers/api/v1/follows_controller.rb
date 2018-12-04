@@ -1,5 +1,10 @@
 class Api::V1::FollowsController < ApplicationController
 
+    def index
+      @follows = Follow.all
+      render json: @follows
+    end
+
     def create
         @follow = Follow.new(follow_params)
         if @follow.save
@@ -24,7 +29,7 @@ class Api::V1::FollowsController < ApplicationController
         render json: @follows
      end
 
-  
+
     private
 
     def follow_params
