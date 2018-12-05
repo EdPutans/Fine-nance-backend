@@ -1,19 +1,30 @@
 class Api::V1::ObjectivesController < ApplicationController
-    
-   def index
+
+    def index
         @objective =Objective.all
         render json: @objective
     end
 
 
     def create
-        @objective =Objective.new(objective_params)
+        @objective = Objective.new(objective_params)
         if @objective.save
             render json: @objective
         else
             render json: {error: "Unable to create this objective"}, status: 400
         end
     end
+
+    def update
+        @objective = Objective.find_by(id: params[:id])
+        @objective.update(objective_params)
+        if @objective
+            render json: @objective
+        else
+            render json: {error: "Unable to update this objective"}, status: 400
+        end
+    end
+
 
     def show
         @objective =Objective.find_by(id: params[:id])
